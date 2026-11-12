@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendaftaran Seminar Web</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px 16px;
+      background: #343436;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: #1f1f29;
+      line-height: 1.5;
+    }
+
+    .kartu {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 32px 28px;
+      background: #fcfbfb;
+      border-radius: 20px;
+      box-shadow: 0 2px 12px rgba(30, 30, 60, 0.06);
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      font-size: 2.2rem;
+      line-height: 1.15;
+      font-weight: 700;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      font: inherit;
+      color: inherit;
+      background: #edf0f1;
+      border: 1.5px solid #1e4dea;
+      border-radius: 12px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    select {
+      font-size: 0.9rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    /* Kotak wajib yang masih kosong atau tidak valid: garis merah */
+    input:invalid,
+    select:invalid,
+    textarea:invalid {
+      border-color: #b4234a;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #5b4bdb;
+      box-shadow: 0 0 0 3px rgba(91, 75, 219, 0.2);
+    }
+
+    fieldset {
+      margin: 0 0 18px;
+      padding: 12px 16px 14px;
+      border: 1.5px solid #030305;
+      border-radius: 12px;
+    }
+
+    legend {
+      padding: 0 6px;
+    }
+
+    .pilihan {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 0 16px 0 0;
+    }
+
+    .centang {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .centang input,
+    .pilihan input {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+    }
+
+    .centang label {
+      margin: 0;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      font: inherit;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 8px;
+      padding: 13px 16px;
+      font: inherit;
+      font-weight: 600;
+      color: #ffffff;
+      background: #5b4bdb;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #4a3bc4;
+    }
+
+    /* Tabel Peserta Terdaftar */
+    .tabel-peserta {
+      max-width: 480px;
+      margin: 24px auto 0;
+    }
+
+    .tabel-peserta table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+    }
+
+    .tabel-peserta caption {
+      padding: 8px 0;
+      font-size: 1.1rem;
+      color: #ffffff;
+    }
+
+    .tabel-peserta th,
+    .tabel-peserta td {
+      padding: 12px 14px;
+      text-align: left;
+      border: 1px solid #dcdce6;
+    }
+
+    .tabel-peserta th {
+      color: #ffffff;
+      background: #5b3ab5;
+    }
+
+    .tabel-peserta td[rowspan] {
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <main class="kartu">
+    <h1>Pendaftaran Seminar Web</h1>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+      <div class="field">
+        <label for="nama">Nama lengkap</label>
+        <input type="text" id="nama" name="nama" required>
+      </div>
+
+      <div class="field">
+        <label for="nim">NIM</label>
+        <input type="text" id="nim" name="nim" required>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="field">
+        <label for="prodi">Program studi</label>
+        <select id="prodi" name="prodi" required>
+          <option value="">-- pilih --</option>
+          <option value="si">Sistem Informasi</option>
+          <option value="ti">Teknik Informatika</option>
+          <option value="bd">Bisnis Digital</option>
+        </select>
+      </div>
+
+      <fieldset>
+        <legend>Sesi</legend>
+        <label class="pilihan"><input type="radio" name="sesi" value="pagi" required> Pagi</label>
+        <label class="pilihan"><input type="radio" name="sesi" value="siang"> Siang</label>
+      </fieldset>
+
+      <div class="field">
+        <label for="komentar">Komentar</label>
+        <textarea id="komentar" name="komentar" rows="3"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="berkas">Unggah file (jpg, png, pdf)</label>
+        <input type="file" id="berkas" name="berkas" accept=".jpg,.jpeg,.png,.pdf">
+      </div>
+
+      <div class="centang">
+        <input type="checkbox" id="tertib" name="setuju_tertib" required>
+        <label for="tertib">Saya menyetujui tata tertib</label>
+      </div>
+      <div class="centang">
+        <input type="checkbox" id="data" name="setuju_data" required>
+        <label for="data">Saya menyetujui penggunaan data pribadi</label>
+      </div>
+
+      <button type="submit">Daftar</button>
+    </form>
+  </main>
+
+  <section class="tabel-peserta">
+    <table>
+      <caption>Peserta Terdaftar</caption>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama</th>
+          <th>Prodi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Pasca</td>
+          <td rowspan="2">SI</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Bowo</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">Total: 2 peserta</td>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
+</body>
+</html>

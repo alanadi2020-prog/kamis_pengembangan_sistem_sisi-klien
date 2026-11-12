@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo navbar</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f8f5ef;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: #1f1f29;
+      line-height: 1.4;
+    }
+
+    /* Navbar: logo di kiri, menu di kanan (flexbox + space-between) */
+    nav {
+      position: sticky;      /* menempel di atas saat digulir */
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      color: #ffffff;
+      background: #3d2b20;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .menu {
+      display: flex;
+      gap: 10px;
+    }
+
+    .menu a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .menu a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 20px 18px 40px;
+    }
+
+    h1 {
+      margin: 12px 0 16px;
+      font-size: 2.1rem;
+    }
+
+    /* Kartu: position relative supaya lencana bisa diletakkan di dalamnya */
+    .kartu {
+      position: relative;
+      width: 266px;
+      margin-bottom: 14px;
+      overflow: hidden;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .gambar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 160px;
+      font-size: 1.3rem;
+      color: #ffffff;
+    }
+
+    .kintamani { background: #6b4e38; }
+    .susu      { background: #b88a5c; }
+    .latte     { background: #8a6a4c; }
+
+    .info {
+      padding: 12px 12px 14px;
+    }
+
+    .info h3 {
+      margin: 0 0 6px;
+      font-size: 1.15rem;
+    }
+
+    .harga {
+      font-weight: 700;
+      color: #b5733a;
+    }
+
+    /* ABSOLUTE: lencana di pojok kanan atas kartu */
+    .lencana {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      padding: 2px 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #ffffff;
+      background: #c4264f;
+      border-radius: 999px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">&#9749; KopiBali</div>
+    <div class="menu">
+      <a href="#">Beranda</a>
+      <a href="#">Menu</a>
+      <a href="#">Kontak</a>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Demo navbar</h1>
+    <p>Gulir ke bawah setelah langkah 4 &mdash; kartu di bawah memakai position: relative.</p>
+
+    <div class="kartu">
+      <span class="lencana">Favorit</span>
+      <div class="gambar kintamani">Kopi Kintamani</div>
+      <div class="info">
+        <h3>Kopi Kintamani</h3>
+        <span class="harga">Rp 18.000</span>
+      </div>
+    </div>
+
+    <div class="kartu">
+      <div class="gambar susu">Es Kopi Susu</div>
+      <div class="info">
+        <h3>Es Kopi Susu</h3>
+        <span class="harga">Rp 20.000</span>
+      </div>
+    </div>
+
+    <div class="kartu">
+      <div class="gambar latte">Kopi Latte</div>
+      <div class="info">
+        <h3>Kopi Latte</h3>
+        <span class="harga">Rp 22.000</span>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

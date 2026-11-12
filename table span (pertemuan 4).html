@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo position</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0 16px 40px;
+      background: #f4f2fd;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: #1f1f29;
+      line-height: 1.4;
+    }
+
+    /* STICKY: menu menempel di atas saat halaman digulir */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      margin: 0 -16px;
+      padding: 16px 20px;
+      background: #1d1442;
+      color: #ffffff;
+    }
+
+    nav strong {
+      margin-right: 8px;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    /* FIXED: lencana Diskon selalu di pojok kanan atas layar */
+    .diskon {
+      position: fixed;
+      top: 8px;
+      right: 8px;
+      z-index: 20;
+      padding: 4px 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #ffffff;
+      background: #d2234f;
+      border-radius: 999px;
+    }
+
+    /* FIXED: tombol WhatsApp melayang di pojok kanan bawah layar */
+    .wa {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+      background: #4ade80;
+      border-radius: 50%;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .wa:hover {
+      transform: scale(1.1);
+    }
+
+    h1 {
+      margin: 28px 0 20px;
+      font-size: 2.2rem;
+    }
+
+    /* RELATIVE: kartu menjadi acuan posisi untuk elemen di dalamnya */
+    .kartu {
+      position: relative;
+      width: 220px;
+      height: 132px;
+      padding: 12px;
+      background: #ffffff;
+      border: 2px solid #5b4bdb;
+      border-radius: 14px;
+    }
+
+    .kartu strong {
+      display: block;
+    }
+
+    .daftar {
+      margin-top: 8px;
+      overflow: hidden;
+      background: #ffffff;
+      border-radius: 10px;
+    }
+
+    .daftar div {
+      height: 44px;
+    }
+
+    .daftar div:nth-child(even) {
+      background: #ebe8f8;
+    }
+  </style>
+</head>
+<body>
+  <span class="diskon">Diskon</span>
+  <a class="wa" href="https://wa.me/62895800289256" target="_blank" rel="noopener" aria-label="Chat WhatsApp">WA</a>
+
+  <nav>
+    <strong>KopiBali</strong> &middot;
+    <a href="#">Beranda</a> &middot;
+    <a href="#">Menu</a> &middot;
+    <a href="#">Kontak</a>
+  </nav>
+
+  <h1>Demo position</h1>
+
+  <div class="kartu">
+    <strong>Es Kopi Susu</strong>
+    Rp 20.000
+  </div>
+
+  <p>Gulir ke bawah untuk mencoba sticky dan fixed...</p>
+
+  <div class="daftar">
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+  </div>
+</body>
+</html>
